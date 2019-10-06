@@ -82,6 +82,7 @@ const uint8_t kBorderWidth = 1;
 unsigned long interval = 5000; //Tempo à régler
 unsigned long previousMillis = 0; //
 
+bool fist_select = true;
  
 
 void setup() {
@@ -147,7 +148,12 @@ void loop() {
      break;
     case 3:
       unsigned long currentMillis = millis();
-      if ((unsigned long)(currentMillis - previousMillis) >= interval) {// tempo de mise à jour des données capteur et de l'afficheur.
+      if (fist_select == true){
+        previousMillis = millis();
+        ReadDHT22();
+        fist_select = false;
+      }
+      if ((unsigned long)(currentMillis - previousMillis) >= interval ) {// tempo de mise à jour des données capteur et de l'afficheur.
         previousMillis = millis();
         ReadDHT22();
     
@@ -184,6 +190,7 @@ void navigation() {
     lastPosition = virtualPosition;
     Serial.print(F("Position menu : "));
     Serial.println(posMenu);
+    fist_select=true;
   
   }
 
