@@ -14,3 +14,9 @@ Panneau Matrix NeoLed 8*8. Idée d'origine, permettre d'afficher sa disponibilit
         A tester en PETG, avec la chaleur des LED, le PLA se "bouge"
         
      - Le code adruino pour un adruino Nano
+
+La gestion de l'affichage des temperature et humidité est réaliser par bargraphe
+A gauche sur 4 de large la temperature
+   La temperature demarre a 16° et chaque ligne represente 2°
+A droite, sur 3 led de large (pour separation avec temperature) l'humidité, 
+  Chaque ligne represente 12%
